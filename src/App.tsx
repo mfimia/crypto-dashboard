@@ -1,12 +1,20 @@
-import { useEffect } from "react";
 import CryptoList from "./components/crypto/CryptoList";
-import CryptoState from "./context/CryptoState";
+import BitcoinState from "./context/bitcoin/BitcoinState";
+import EthereumState from "./context/ethereum/EthereumState";
+import DogeState from "./context/doge/DogeState";
+import UpfState from "./context/upfinity/UpfState";
 
 const App: React.FC = (): JSX.Element => {
   return (
-    <CryptoState>
-      <CryptoList />
-    </CryptoState>
+    <BitcoinState>
+      <EthereumState>
+        <DogeState>
+          <UpfState>
+            <CryptoList />
+          </UpfState>
+        </DogeState>
+      </EthereumState>
+    </BitcoinState>
   );
 };
 
