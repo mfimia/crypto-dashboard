@@ -1,4 +1,6 @@
-export const emptyCoin = {
+import Coin from "../context/CoinInterface";
+
+export const emptyCoin: Coin = {
   price: 0,
   tickers: [],
   market: {
