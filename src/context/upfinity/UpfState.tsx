@@ -14,12 +14,12 @@ const UpfState: React.FC = (props): JSX.Element => {
   });
 
   // GET Upf data
-  const getUpfData = async () => {
+  const getUpfData = async (): Promise<void> => {
     try {
-      const res = await fetch(
+      const res: Response = await fetch(
         "https://api.coingecko.com/api/v3/coins/upfinity"
       );
-      const data = await res.json();
+      const data: any = await res.json();
 
       setUpf((prev) => {
         return {
@@ -34,12 +34,12 @@ const UpfState: React.FC = (props): JSX.Element => {
   };
 
   // GET Upf market data
-  const getUpfMarketData = async () => {
+  const getUpfMarketData = async (): Promise<void> => {
     try {
-      const res = await fetch(
+      const res: Response = await fetch(
         "https://api.coingecko.com/api/v3/coins/upfinity/market_chart?vs_currency=eur&days=7"
       );
-      const data = await res.json();
+      const data: any = await res.json();
       const { prices, market_caps, total_volumes } = data;
 
       setUpf((prev) => {

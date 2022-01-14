@@ -14,12 +14,12 @@ const EthereumState: React.FC = (props): JSX.Element => {
   });
 
   // GET Ethereum data
-  const getEthereumData = async () => {
+  const getEthereumData = async (): Promise<void> => {
     try {
-      const res = await fetch(
+      const res: Response = await fetch(
         "https://api.coingecko.com/api/v3/coins/ethereum"
       );
-      const data = await res.json();
+      const data: any = await res.json();
 
       setEthereum((prev) => {
         return {
@@ -34,12 +34,12 @@ const EthereumState: React.FC = (props): JSX.Element => {
   };
 
   // GET Ethereum market data
-  const getEthereumMarketData = async () => {
+  const getEthereumMarketData = async (): Promise<void> => {
     try {
-      const res = await fetch(
+      const res: Response = await fetch(
         "https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=eur&days=7"
       );
-      const data = await res.json();
+      const data: any = await res.json();
       const { prices, market_caps, total_volumes } = data;
 
       setEthereum((prev) => {
@@ -57,7 +57,7 @@ const EthereumState: React.FC = (props): JSX.Element => {
     }
   };
 
-  const getEthereum = () => {
+  const getEthereum = (): void => {
     getEthereumData();
     getEthereumMarketData();
   };

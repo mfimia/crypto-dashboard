@@ -14,12 +14,12 @@ const DogeState: React.FC = (props): JSX.Element => {
   });
 
   // GET Doge data
-  const getDogeData = async () => {
+  const getDogeData = async (): Promise<void> => {
     try {
-      const res = await fetch(
+      const res: Response = await fetch(
         "https://api.coingecko.com/api/v3/coins/dogecoin"
       );
-      const data = await res.json();
+      const data: any = await res.json();
 
       setDoge((prev) => {
         return {
@@ -34,12 +34,12 @@ const DogeState: React.FC = (props): JSX.Element => {
   };
 
   // GET Doge market data
-  const getDogeMarketData = async () => {
+  const getDogeMarketData = async (): Promise<void> => {
     try {
-      const res = await fetch(
+      const res: Response = await fetch(
         "https://api.coingecko.com/api/v3/coins/dogecoin/market_chart?vs_currency=eur&days=7"
       );
-      const data = await res.json();
+      const data: any = await res.json();
       const { prices, market_caps, total_volumes } = data;
 
       setDoge((prev) => {
@@ -57,7 +57,7 @@ const DogeState: React.FC = (props): JSX.Element => {
     }
   };
 
-  const getDoge = () => {
+  const getDoge = (): void => {
     getDogeData();
     getDogeMarketData();
   };

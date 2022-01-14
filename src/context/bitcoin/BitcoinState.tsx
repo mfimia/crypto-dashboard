@@ -14,10 +14,12 @@ const BitcoinState: React.FC = (props): JSX.Element => {
   });
 
   // GET Bitcoin data
-  const getBitcoinData = async () => {
+  const getBitcoinData = async (): Promise<void> => {
     try {
-      const res = await fetch("https://api.coingecko.com/api/v3/coins/bitcoin");
-      const data = await res.json();
+      const res: Response = await fetch(
+        "https://api.coingecko.com/api/v3/coins/bitcoin"
+      );
+      const data: any = await res.json();
 
       setBitcoin((prev) => {
         return {
@@ -32,12 +34,12 @@ const BitcoinState: React.FC = (props): JSX.Element => {
   };
 
   // GET Bitcoin market data
-  const getBitcoinMarketData = async () => {
+  const getBitcoinMarketData = async (): Promise<void> => {
     try {
-      const res = await fetch(
+      const res: Response = await fetch(
         "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=eur&days=7"
       );
-      const data = await res.json();
+      const data: any = await res.json();
       const { prices, market_caps, total_volumes } = data;
 
       setBitcoin((prev) => {
@@ -55,7 +57,7 @@ const BitcoinState: React.FC = (props): JSX.Element => {
     }
   };
 
-  const getBitcoin = () => {
+  const getBitcoin = (): void => {
     getBitcoinData();
     getBitcoinMarketData();
   };
