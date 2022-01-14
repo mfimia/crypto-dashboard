@@ -46,6 +46,7 @@ const DogeCoinChart: React.FC = (): JSX.Element => {
             data: { stroke: "brown" },
           }}
           data={dogeChart}
+          interpolation="natural"
         />
       </VictoryChart>
     </div>

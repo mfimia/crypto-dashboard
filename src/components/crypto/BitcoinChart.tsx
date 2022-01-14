@@ -46,6 +46,7 @@ const BitcoinChart: React.FC = (): JSX.Element => {
             data: { stroke: "gold" },
           }}
           data={bitcoinChart}
+          interpolation="natural"
         />
       </VictoryChart>
     </div>

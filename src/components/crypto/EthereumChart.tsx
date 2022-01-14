@@ -46,6 +46,7 @@ const EthereumChart: React.FC = (): JSX.Element => {
             data: { stroke: "blue" },
           }}
           data={ethereumChart}
+          interpolation="natural"
         />
       </VictoryChart>
     </div>

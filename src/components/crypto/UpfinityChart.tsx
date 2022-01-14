@@ -51,6 +51,7 @@ const UpfinityChart: React.FC = (): JSX.Element => {
             data: { stroke: "green" },
           }}
           data={upfChart}
+          interpolation="natural"
         />
       </VictoryChart>
     </div>
