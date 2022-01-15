@@ -42,7 +42,7 @@ const UpfState: React.FC = (props): JSX.Element => {
       const data: any = await res.json();
       const { prices, market_caps, total_volumes } = data;
 
-      setUpf((prev) => {
+      setUpf((prev: Coin): Coin => {
         return {
           ...prev,
           market: {
@@ -57,7 +57,7 @@ const UpfState: React.FC = (props): JSX.Element => {
     }
   };
 
-  const getUpf = () => {
+  const getUpf: VoidFunction = (): void => {
     getUpfData();
     getUpfMarketData();
   };
